@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/spring-kafka-multiple-topics.iml" filepath="$PROJECT_DIR$/spring-kafka-multiple-topics.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring-kafka-receiver.iml" filepath="$PROJECT_DIR$/spring-kafka-receiver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-kafka-sender.iml" filepath="$PROJECT_DIR$/spring-kafka-sender.iml" />
     </modules>
   </component>
 </project>
