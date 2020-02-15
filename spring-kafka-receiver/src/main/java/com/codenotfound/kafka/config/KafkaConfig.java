@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.core.KafkaAdmin;
 
-import com.codenotfound.kafka.kafka.EdigasInTopic;
+import com.codenotfound.kafka.consumer.TopicOfIncomingEdigas;
 
 @EnableKafka
 @Configuration
@@ -33,7 +33,7 @@ public class KafkaConfig {
     }
 
     @Bean
-    public NewTopic incomingEdigasTopic(EdigasInTopic topic) {
+    public NewTopic incomingEdigasTopic(TopicOfIncomingEdigas topic) {
         LOGGER.info("Kafka topic config ...");
         return topic.buildTopic();
     }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class EdigasInTopic implements KafkaTopic {
 
-    private static final int PARTITION_SIZE = 10;
+    private static final int PARTITION_SIZE = 5;
 
     public NewTopic buildTopic() {
         return new NewTopic(getName(), getPartitionSize(), (short) 1);

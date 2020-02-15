@@ -23,19 +23,25 @@ public class Receiver {
         return latch;
     }
 
-    @KafkaListener(topics = KafkaDefinition.TOPIC_MSG_EDIGAS_INCOMING, groupId = KafkaDefinition.GROUP_ID)
+    @KafkaListener(
+            groupId = KafkaDefinition.GROUP_ID,
+            id = TopicOfIncomingEdigas.NAME,
+            topics = TopicOfIncomingEdigas.NAME,
+            concurrency = TopicOfIncomingEdigas.PARTITION_SIZE,
+            autoStartup = "true")
     public void receiveBar(
             @Payload String message,
             @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition) {
-        LOGGER.info("{}: received from partition {}", message, partition);
-        for (int i = 1; i < 12; i++) {
+        LOGGER.info("\"{}\": received from partition {}", message, partition);
+        int waitLoop = 10;
+        for (int count = 1; count < waitLoop; count++) {
             try {
-                Thread.sleep(5000);
-                LOGGER.info("{}: {} of 12", message, i);
+                Thread.sleep(1000);
+                LOGGER.info("\"{}\": {} of {}", message, count, waitLoop);
             } catch (InterruptedException e) {
             }
         }
-        LOGGER.info("{}: done", message);
+        LOGGER.info("\"{}\": done", message);
         latch.countDown();
     }
 }
